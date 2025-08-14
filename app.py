@@ -2,16 +2,14 @@ import streamlit as st
 from inference import Chatbot
 import json
 
-# ==== YOUR DEFAULTS ====
-DEFAULT_MODEL_ID = "meta-llama/Llama-2-7b-chat-hf"   # Change to your base model or finetuned full model
-DEFAULT_ADAPTER_PATH = "/path/to/your/fine-tuned/adapter"  # Leave "" if you have a full finetune
-# ========================
+DEFAULT_MODEL_ID = "meta-llama/Llama-2-7b-chat-hf"   # finetuned model
+DEFAULT_ADAPTER_PATH = "/path/to/your/fine-tuned/adapter"
 
 st.set_page_config(page_title="Medical Chatbot", layout="centered")
 st.title("Medical Chatbot")
 st.caption("Educational demo. Not a substitute for professional medical advice.")
 
-# Sidebar controls (can override defaults if desired)
+# Sidebar controls
 st.sidebar.header("Model Settings")
 model_id = st.sidebar.text_input("Model ID or path", DEFAULT_MODEL_ID)
 adapter_path = st.sidebar.text_input("LoRA Adapter Path (optional)", DEFAULT_ADAPTER_PATH)
